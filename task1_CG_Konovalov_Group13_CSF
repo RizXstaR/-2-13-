@@ -1,0 +1,41 @@
+from tkinter import *
+import time
+
+root = Tk()
+root.title('Sharic-losharik')
+mx = 1000
+my = 1000
+c = Canvas(root, width=mx, height=my, bg='pink')
+c.focus_set()
+c.pack()
+
+ball = c.create_oval(200, 200, 250, 250, fill='green')
+c.bind('<Up>', lambda event: c.move(ball, 0, -10))
+c.bind('<Down>', lambda event: c.move(ball, 0, 10))
+c.bind('<Left>', lambda event: c.move(ball, -10, 0))
+c.bind('<Right>', lambda event: c.move(ball, 10, 0))
+    
+
+quad = c.create_rectangle(10, 10, 90, 90, fill = "blue")
+while True:
+    for i in range(180):
+        c.move(quad, 5, 0)
+        root.update()
+        time.sleep(0.0001)
+
+    for i in range (180):
+        c.move(quad, 0, 5)
+        root.update()
+        time.sleep(0.0001)
+
+    for i in range (180):
+        c.move(quad, -5, 0)
+        root.update()
+        time.sleep(0.0001)
+
+    for i in range (180):
+        c.move(quad, 0, -5)
+        root.update()
+        time.sleep(0.0001)
+
+root.mainloop()
